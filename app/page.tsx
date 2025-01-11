@@ -2,62 +2,68 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import Image from "next/image";
-import { useState } from "react";
-
+import { FormEvent, useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 
 export default function Home() {
-  const [formData, setFormData] = useState({ name: "", email: "" });
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+  });
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    fetch("https://example.com/api/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Success:", data);
-        alert("Thank you for registering your interest!");
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-        alert("There was an error submitting your form.");
-      });
-  };
+   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+     e.preventDefault();
+
+     try {
+       const response = await fetch("/api/register", {
+         method: "POST",
+         headers: {
+           "Content-Type": "application/json",
+         },
+         body: JSON.stringify(formData),
+       });
+
+       if (!response.ok) {
+         throw new Error("Network response was not ok");
+       }
+
+       toast({
+         title: "Success!",
+         description: "Thank you for registering your interest.",
+       });
+
+       setFormData({ name: "", email: "" });
+     } catch {
+       toast({
+         variant: "destructive",
+         title: "Error",
+         description: "There was a problem submitting your form.",
+       });
+     }
+   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-background text-foreground p-8">
+    <div className="flex flex-col items-center justify-center h-full bg-[#151515] text-foreground p-8">
       <Card className="w-full max-w-md">
         <CardHeader>
-          <CardTitle className="text-4xl font-bold mb-4">Coming Soon</CardTitle>
+          <CardTitle className="text-4xl font-bold mb-4 text-center">
+            Coming Soon
+          </CardTitle>
         </CardHeader>
         <CardContent>
           <p className="mb-8 text-center">
-            Our new real estate project is launching soon. Stay tuned!
+            Our website is currently under development. If you are interested in
+            any of our properties register here and we will be in touch
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-            <Image
-              src="/IMG_5675.JPG"
-              alt="Project 1"
-              width={300}
-              height={200}
-            />
-            <Image
-              src="/project2.jpg"
-              alt="Project 2"
-              width={300}
-              height={200}
-            />
-          </div>
           <form onSubmit={handleSubmit} className="flex flex-col items-center">
             <Input
               type="text"
