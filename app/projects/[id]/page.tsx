@@ -3,10 +3,6 @@
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
-// type ProjectImage = {
-//   src: string;
-//   alt: string;
-// };
 
 const ProjectDetail = () => {
   const pathname = usePathname();

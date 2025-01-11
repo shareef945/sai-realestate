@@ -20,36 +20,36 @@ export default function Home() {
     }));
   };
 
-   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-     e.preventDefault();
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-     try {
-       const response = await fetch("/api/register", {
-         method: "POST",
-         headers: {
-           "Content-Type": "application/json",
-         },
-         body: JSON.stringify(formData),
-       });
+    try {
+      const response = await fetch("/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-       if (!response.ok) {
-         throw new Error("Network response was not ok");
-       }
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
 
-       toast({
-         title: "Success!",
-         description: "Thank you for registering your interest.",
-       });
+      toast({
+        title: "Success!",
+        description: "Thank you for registering your interest.",
+      });
 
-       setFormData({ name: "", email: "" });
-     } catch {
-       toast({
-         variant: "destructive",
-         title: "Error",
-         description: "There was a problem submitting your form.",
-       });
-     }
-   };
+      setFormData({ name: "", email: "" });
+    } catch {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "There was a problem submitting your form.",
+      });
+    }
+  };
 
   return (
     <div className="flex flex-col items-center justify-center h-full bg-[#151515] text-foreground p-8">
@@ -61,8 +61,9 @@ export default function Home() {
         </CardHeader>
         <CardContent>
           <p className="mb-8 text-center">
-            Our website is currently under development. If you are interested in
-            any of our properties register here and we will be in touch
+            Our website is currently under development. Check out our properties
+            in the meantime and if you are interested register here and we will
+            be in touch
           </p>
           <form onSubmit={handleSubmit} className="flex flex-col items-center">
             <Input
