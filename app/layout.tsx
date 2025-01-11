@@ -4,12 +4,22 @@ import "@fontsource/space-grotesk";
 import NavBar from "@/components/ui/navbar";
 import { Toaster } from "@/components/ui/toaster";
 
-
 export const metadata: Metadata = {
   title: "SAI Real Estate",
   description: "Real Estate Development",
   icons: {
-    icon: "/sai-main.png",
+    icon: [
+      {
+        url: "/sai-main.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+      {
+        url: "/sai-main.png",
+        sizes: "16x16",
+        type: "image/png",
+      },
+    ],
   },
   openGraph: {
     title: "SAI Real Estate",
