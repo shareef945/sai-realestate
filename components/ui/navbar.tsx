@@ -4,6 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 const NAV_ITEMS = [
   { href: "/", label: "Home" },
@@ -43,11 +45,18 @@ const NavigationLinks = ({ className }: { className?: string }) => (
 );
 
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
   return (
     <header className={COMMON_STYLES.nav}>
       <div className={COMMON_STYLES.container}>
         <Logo />
-        <Sheet>
+        <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
             <button className={COMMON_STYLES.mobileButton}>
               <Menu className="h-6 w-6" />
