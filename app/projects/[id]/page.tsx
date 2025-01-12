@@ -46,6 +46,7 @@ const projectDetailsMap = {
       { src: "/vista-grande/13.JPG", alt: "Project 1 Image" },
       { src: "/vista-grande/14.JPG", alt: "Project 1 Image" },
       { src: "/vista-grande/15.JPG", alt: "Project 1 Image" },
+      { src: "/vista-grande/floor-plan.png", alt: "Project 1 Image" },
     ],
   },
 };
