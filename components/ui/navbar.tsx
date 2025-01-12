@@ -6,6 +6,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { Button } from "./button";
 
 const NAV_ITEMS = [
   { href: "/", label: "Home" },
@@ -41,6 +42,12 @@ const NavigationLinks = ({ className }: { className?: string }) => (
         {label}
       </Link>
     ))}
+    <Button
+      variant="outline"
+      className="text-white border-none rounded-none bg-[#EA5C1C]"
+    >
+      <Link href="/">Submit a request</Link>
+    </Button>
   </div>
 );
 
@@ -69,7 +76,6 @@ export default function Navbar() {
             </div>
           </SheetContent>
         </Sheet>
-
         <NavigationLinks className={COMMON_STYLES.desktopNav} />
       </div>
     </header>
