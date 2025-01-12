@@ -31,6 +31,21 @@ const projectDetailsMap = {
       { src: "/vista-grande/IMG_5681.JPG", alt: "Project 1 Image" },
       { src: "/vista-grande/IMG_5692.JPG", alt: "Project 1 Image" },
       { src: "/vista-grande/IMG_5693.JPG", alt: "Project 1 Image" },
+      { src: "/vista-grande/1.JPG", alt: "Project 1 Image" },
+      { src: "/vista-grande/2.JPG", alt: "Project 1 Image" },
+      { src: "/vista-grande/3.JPG", alt: "Project 1 Image" },
+      { src: "/vista-grande/4.JPG", alt: "Project 1 Image" },
+      { src: "/vista-grande/5.JPG", alt: "Project 1 Image" },
+      { src: "/vista-grande/6.JPG", alt: "Project 1 Image" },
+      { src: "/vista-grande/7.JPG", alt: "Project 1 Image" },
+      { src: "/vista-grande/8.JPG", alt: "Project 1 Image" },
+      { src: "/vista-grande/9.JPG", alt: "Project 1 Image" },
+      { src: "/vista-grande/10.JPG", alt: "Project 1 Image" },
+      { src: "/vista-grande/11.JPG", alt: "Project 1 Image" },
+      { src: "/vista-grande/12.JPG", alt: "Project 1 Image" },
+      { src: "/vista-grande/13.JPG", alt: "Project 1 Image" },
+      { src: "/vista-grande/14.JPG", alt: "Project 1 Image" },
+      { src: "/vista-grande/15.JPG", alt: "Project 1 Image" },
     ],
   },
 };
@@ -55,6 +70,7 @@ const projectDetailsMap = {
             <Image
               src={image.src}
               alt={image.alt}
+              loading="eager"
               width={600}
               height={400}
               className="transition-transform duration-300 ease-in-out transform hover:scale-105"
