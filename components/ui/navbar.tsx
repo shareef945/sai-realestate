@@ -28,7 +28,13 @@ const COMMON_STYLES = {
 
 const Logo = () => (
   <Link href="/" className={COMMON_STYLES.logo} prefetch={false}>
-    <Image src="/sai-main.png" width={50} alt="logo" height={50} />
+    <Image
+      src="/sai-main.png"
+      width={50}
+      alt="logo"
+      height={50}
+      priority
+    />
     <p className={COMMON_STYLES.logoText}>REAL ESTATE</p>
   </Link>
 );

@@ -41,7 +41,7 @@ const FeaturedProperties = () => {
   ];
 
   return (
-    <div className="max-h-[126.0625rem] py-24 px-8 overflow-auto">
+    <div className="max-h-[126.0625rem] pb-24 px-8 overflow-auto">
       <div className="w-1/2">
         <p className="font-semibold text-[60px] text-white">
           Featured Properties
@@ -68,6 +68,7 @@ const FeaturedProperties = () => {
                           alt={property.title}
                           fill
                           className="object-cover"
+                          priority
                         />
                       </div>
                     </div>
@@ -112,6 +113,7 @@ const FeaturedProperties = () => {
                           alt={property.title}
                           fill
                           className="object-cover"
+                          priority
                         />
                       </div>
                     </div>

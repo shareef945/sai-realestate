@@ -35,7 +35,7 @@ const timelineData = [
 ];
 const HowFar = () => {
   return (
-    <section className="min-h-screen bg-[#151515] p-8">
+    <section className="min-h-screen bg-[#151515] px-8 pb-8">
       <p className="text-[60px] font-semibold pb-24">How far we have come</p>
       <TracingBeam className="px-6">
         {timelineData.map((item, index) => (
