@@ -3,6 +3,7 @@ import "./globals.css";
 import "@fontsource/space-grotesk";
 import NavBar from "@/components/ui/navbar";
 import { Toaster } from "@/components/ui/toaster";
+import Footer from "@/components/ui/footer";
 
 export const metadata: Metadata = {
   title: "SAI Real Estate",
@@ -49,6 +50,7 @@ export default function RootLayout({
         <NavBar />
         {children}
         <Toaster />
+        <Footer />
       </body>
     </html>
   );
