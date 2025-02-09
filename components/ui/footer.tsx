@@ -3,55 +3,70 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <section className="h-[32.5625rem] bg-[#151515]">
-      <div className="grid grid-cols-10 gap-8 my-20 h-[32.5625rem]">
-        <div className="col-span-6 relative before:absolute before:inset-0 before:content-[''] before:pointer-events-none before:bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] before:bg-[size:2rem_2rem]">
-          <div className="p-10 flex items-end justify-start h-full">
+    <section className="min-h-[20rem] md:h-[32.5625rem] bg-[#151515] w-full py-8 md:py-0">
+      <div className="grid grid-cols-1 md:grid-cols-10 gap-4 md:gap-8 h-full md:my-20 px-4 md:px-0">
+        {/* Logo section */}
+        <div className="col-span-1 md:col-span-6 relative before:absolute before:inset-0 before:content-[''] before:pointer-events-none before:bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] before:bg-[size:2rem_2rem]">
+          <div className="p-4 md:p-10 flex items-center md:items-end justify-center md:justify-start h-full">
             <Image
               src="/logos/footer-logo.png"
               alt="Footer logo"
               width={600}
               height={1000}
-              // className="w-auto h-[200px]"
+              className="w-auto h-[100px] md:h-[200px] object-contain"
             />
           </div>
         </div>
 
-        <div className="col-span-4 p-2 flex flex-col justify-between h-full">
+        {/* Links and social section */}
+        <div className="col-span-1 md:col-span-4 p-4 md:p-2 flex flex-col justify-between h-full gap-8 md:gap-0">
           <div className="flex flex-col">
-            <p className="underline pb-2">Ventures</p>
-            <p className="underline pb-2">Data Privacy & Security Policy</p>
-            <p className="underline pb-2">Compliance & Certifications</p>
+            <p className="underline pb-2 text-sm md:text-base hover:opacity-80 cursor-pointer">
+              Ventures
+            </p>
+            <p className="underline pb-2 text-sm md:text-base hover:opacity-80 cursor-pointer">
+              Data Privacy & Security Policy
+            </p>
+            <p className="underline pb-2 text-sm md:text-base hover:opacity-80 cursor-pointer">
+              Compliance & Certifications
+            </p>
           </div>
-          <div className="flex flex-col gap-8">
-            <p className="underline pb-2">info@saitechnology.co</p>
-            <div className="flex gap-8">
+          <div className="flex flex-col gap-4 md:gap-8">
+            <p className="underline pb-2 text-sm md:text-base hover:opacity-80 cursor-pointer">
+              info@saitechnology.co
+            </p>
+            <div className="flex gap-4 md:gap-8">
+              {/* Social icons */}
               <Image
                 src="/logos/x.png"
-                alt="SAI Technology logo"
+                alt="X (Twitter) logo"
                 width={30}
                 height={30}
+                className="w-6 h-6 md:w-[30px] md:h-[30px] hover:opacity-80 cursor-pointer"
               />
               <Image
                 src="/logos/ig.png"
-                alt="SAI Technology logo"
+                alt="Instagram logo"
                 width={30}
                 height={30}
+                className="w-6 h-6 md:w-[30px] md:h-[30px] hover:opacity-80 cursor-pointer"
               />
               <Image
                 src="/logos/linkedin.png"
-                alt="SAI Technology logo"
+                alt="LinkedIn logo"
                 width={30}
                 height={30}
+                className="w-6 h-6 md:w-[30px] md:h-[30px] hover:opacity-80 cursor-pointer"
               />
               <Image
                 src="/logos/whatsapp.png"
-                alt="SAI Technology logo"
+                alt="WhatsApp logo"
                 width={30}
                 height={30}
+                className="w-6 h-6 md:w-[30px] md:h-[30px] hover:opacity-80 cursor-pointer"
               />
             </div>
-            <p className="underline pb-2 text-secondary">
+            <p className="underline pb-2 text-secondary text-xs md:text-base">
               2023 All rights reserved. Powered by SAI Technology ©
             </p>
           </div>
