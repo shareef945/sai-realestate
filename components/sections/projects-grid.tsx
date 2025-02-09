@@ -71,7 +71,7 @@ const mockProjects: Project[] = [
 ];
 
 const ProjectsGrid = () => {
-  const [projects, setProjects] = useState<Project[]>(mockProjects);
+  const [projects, /*setProjects*/] = useState<Project[]>(mockProjects);
   const allProjects = projects;
   const rentalProjects = projects.filter(
     (project) => project.type === "rental"
