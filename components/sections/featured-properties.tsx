@@ -8,14 +8,14 @@ const FeaturedProperties = () => {
       title: "Vista Grande",
       description: "Where Luxury Meets Serenity",
       location: "Teshie Nungua Estates",
-      image: "/vista-grande/1.JPG",
+      image: "/vista-grande/IMG_5678.JPG",
     },
     {
       id: 2,
-      title: "Vista Grande",
+      title: "Auben's Place",
       description: "Elegant Living Spaces",
-      location: "Teshie Nungua Estates",
-      image: "/vista-grande/2.JPG",
+      location: "Tse-Addo",
+      image: "/aubens-place/IMG_6532.jpg",
     },
   ];
 

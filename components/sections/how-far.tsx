@@ -5,32 +5,18 @@ import TimelineItem from "../ui/timeline-item";
 
 const timelineData = [
   {
-    title: "Vista Grande Launch",
+    title: "Vista Grande",
     description:
-      "We launched Vista Grande with a vision to redefine luxury living in prime locations, focusing on both comfort and aesthetics.",
-    year: "2020",
+      "Bringing luxury to an emerging neighborhood, setting new standards for modern living at competitive prices.",
+    year: "2025",
     imagePath: "/vista-grande/IMG_5678.JPG",
-  },
-  {
-    title: "Interior Excellence",
-    description:
-      "Our commitment to interior design excellence set new standards in the industry, with carefully curated spaces that blend functionality and style.",
-    year: "2021",
-    imagePath: "/vista-grande/IMG_5679.JPG",
-  },
-  {
-    title: "Community Spaces",
-    description:
-      "Development of shared spaces and amenities that foster community interaction while maintaining privacy and exclusivity.",
-    year: "2022",
-    imagePath: "/vista-grande/IMG_5680.JPG",
   },
   {
     title: "Auben's Place",
     description:
-      "Our latest development brings together all our learnings and expertise, creating a contemporary urban living space that sets new benchmarks.",
-    year: "2024",
-    imagePath: "/vista-grande/IMG_5681.JPG",
+      "Premium living made accessible in a prime location, combining sophisticated design with exceptional value.",
+    year: "2023",
+    imagePath: "/aubens-place/IMG_6534.jpg",
   },
 ];
 const HowFar = () => {

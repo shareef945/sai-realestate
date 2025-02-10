@@ -15,23 +15,26 @@ const Intro = () => {
             Read More
           </Button>
         </div>
-        <div className="flex flex-col sm:flex-row gap-4 mt-4 sm:mt-8">
-          <div className="w-full sm:w-1/2 aspect-square relative">
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 mt-4 sm:mt-8">
+          <div className="relative w-full aspect-[4/3]">
             <Image
-              src="/general-media/interior.JPG"
+              src="/vista-grande/3.JPG"
               alt="First property"
               fill
-              className="object-cover w-full h-full"
+              className="object-contain rounded-lg"
               priority
+              sizes="(max-width: 640px) 100vw, 50vw"
             />
           </div>
-          <div className="w-full sm:w-1/2 aspect-square relative">
+          <div className="relative w-full aspect-[4/3]">
             <Image
               src="/general-media/exterior.JPG"
               alt="Second property"
               fill
-              className="object-cover w-full h-full"
+              className="object-contain rounded-lg"
               priority
+              sizes="(max-width: 640px) 100vw, 50vw"
             />
           </div>
         </div>

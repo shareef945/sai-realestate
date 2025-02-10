@@ -11,62 +11,30 @@ export interface Project {
   price: number;
   location: string;
   imageUrl: string;
+  imageAspectRatio?: "square" | "portrait" | "landscape";
+  imageBlur?: string; // For blur placeholder
 }
 
 const mockProjects: Project[] = [
   {
     id: "project-1",
-    title: "Luxury Apartment",
-    description: "Modern 3-bedroom apartment with stunning city views",
-    type: "rental" as const,
-    price: 2500,
-    location: "Downtown Manhattan",
-    imageUrl: "https://picsum.photos/seed/1/400/300",
+    title: "Vista Grande",
+    description: "Modern 3-bedroom apartment in an upcoming neighbourhood",
+    type: "sale" as const,
+    price: 150000,
+    location: "Teshie Nungua Estates",
+    imageUrl: "/vista-grande/IMG_5678.JPG",
+    imageAspectRatio: "square",
   },
   {
     id: "project-2",
-    title: "Beach House",
-    description: "Spacious beachfront property with private access",
-    type: "sale" as const,
-    price: 750000,
-    location: "Miami Beach",
-    imageUrl: "https://picsum.photos/seed/2/400/300",
-  },
-  {
-    id: "project-3",
-    title: "Studio Loft",
-    description: "Contemporary studio in artistic district",
+    title: "Auben's Place",
+    description: "Elegant Living Spaces",
     type: "rental" as const,
-    price: 1800,
-    location: "Brooklyn",
-    imageUrl: "https://picsum.photos/seed/3/400/300",
-  },
-  {
-    id: "project-4",
-    title: "Mountain Cabin",
-    description: "Cozy 2-bedroom cabin with mountain views",
-    type: "sale" as const,
-    price: 450000,
-    location: "Aspen",
-    imageUrl: "https://picsum.photos/seed/4/400/300",
-  },
-  {
-    id: "project-5",
-    title: "City Penthouse",
-    description: "Luxurious penthouse with rooftop terrace",
-    type: "sale" as const,
-    price: 1200000,
-    location: "Los Angeles",
-    imageUrl: "https://picsum.photos/seed/5/400/300",
-  },
-  {
-    id: "project-6",
-    title: "Garden Apartment",
-    description: "Ground floor apartment with private garden",
-    type: "rental" as const,
-    price: 3200,
-    location: "San Francisco",
-    imageUrl: "https://picsum.photos/seed/6/400/300",
+    price: 1500,
+    location: "Tse Addo",
+    imageUrl: "/aubens-place/IMG_6534.jpg",
+    // imageAspectRatio: "landscape",
   },
 ];
 

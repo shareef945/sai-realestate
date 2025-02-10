@@ -18,18 +18,18 @@ const COMMON_STYLES = {
     `fixed top-0 z-50 w-full transition-all duration-300 py-2 px-2 ${
       isScrolled ? "bg-[#151515] border-[#898989]" : "bg-transparent"
     }`,
-  container: " flex h-16 w-full items-center justify-between px-6 ",
-  logo: "flex items-center gap-4", // Added gap-4 for consistent spacing
-  logoText: "text-white font-semibold", // Removed pl-4 since we're using gap
-  mobileButton: "lg:hidden text-black",
-  desktopNav: "hidden lg:flex lg:items-center lg:gap-8", // Changed space-x-4 to gap-6 for more spacing
-  link: "flex w-full items-center text-white text-sm font-semibold", // Removed px-4 since we're using gap
+  container: "flex h-16 w-full items-center justify-between px-6",
+  logo: "flex items-center gap-4",
+  logoText: "text-white font-semibold",
+  mobileButton: "lg:hidden text-white", // Changed from text-black to text-white
+  desktopNav: "hidden lg:flex lg:items-center lg:gap-8",
+  link: "flex w-full items-center text-white text-sm font-semibold hover:text-gray-300 transition-colors", // Added hover effect
 };
 
 const Logo = () => (
   <Link href="/" className={COMMON_STYLES.logo} prefetch={false}>
     <Image
-      src="/sai-main.png"
+      src="/logos/sai-main.png"
       width={50}
       alt="logo"
       height={50}
@@ -39,20 +39,26 @@ const Logo = () => (
   </Link>
 );
 
-const NavigationLinks = ({ className }: { className?: string }) => (
-  <div className={className}>
+const NavigationLinks = ({
+  className,
+  isMobile,
+}: {
+  className?: string;
+  isMobile?: boolean;
+}) => (
+  <div className={`${className} ${isMobile ? "flex flex-col gap-6" : ""}`}>
     {NAV_ITEMS.map(({ href, label }) => (
       <Link
         key={href}
         href={href}
-        className={COMMON_STYLES.link}
+        className={`${COMMON_STYLES.link} ${isMobile ? "text-lg" : ""}`}
         prefetch={false}
       >
         {label}
       </Link>
     ))}
-    <Button>
-      <Link href="/">Contact</Link>
+    <Button className={isMobile ? "w-full mt-4" : ""}>
+      <Link href="/contact">Contact</Link>
     </Button>
   </div>
 );
@@ -91,10 +97,12 @@ export default function Navbar() {
               <Menu className="h-6 w-6" />
             </button>
           </SheetTrigger>
-          <SheetContent side="left" className="bg-[#151515]">
-            <Logo />
-            <div className="grid gap-2 py-6 bg-[#151515]">
-              <NavigationLinks />
+          <SheetContent side="left" className="bg-[#151515] p-6">
+            <div className="mb-8">
+              <Logo />
+            </div>
+            <div className="grid gap-2">
+              <NavigationLinks isMobile />
             </div>
           </SheetContent>
         </Sheet>

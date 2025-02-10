@@ -64,8 +64,8 @@ const ProjectDetail = () => {
             Welcome to Vista Grande, a premier residential community designed
             for those who seek elegance, comfort, and a connection to nature.
             Nestled in a prime location, Vista Grande offers a perfect blend of
-            modern living and tranquil surroundings. Whether you&apos;re looking
-            to buy or rent, this is the place to call home.
+            modern living and tranquil surroundings. Whether you&apos;re looking to
+            buy or rent, this is the place to call home.
           </p>
           <Button className="w-fit">Contact</Button>
         </div>
