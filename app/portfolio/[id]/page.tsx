@@ -1,7 +1,4 @@
 "use client";
-
-import FloorPlan from "@/components/sections/floor-plan";
-import UniqueFeatures from "@/components/sections/unique-features";
 import { Button } from "@/components/ui/button";
 import ProjectInfoSimple from "@/components/ui/project-info-simple";
 // import Image from "next/image";
