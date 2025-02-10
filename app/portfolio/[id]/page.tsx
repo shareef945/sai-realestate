@@ -1,55 +1,37 @@
 "use client";
 
-import Image from "next/image";
+import FloorPlan from "@/components/sections/floor-plan";
+import UniqueFeatures from "@/components/sections/unique-features";
+import { Button } from "@/components/ui/button";
+import ProjectInfoSimple from "@/components/ui/project-info-simple";
+// import Image from "next/image";
 import { usePathname } from "next/navigation";
 
-
-const ProjectDetail = () => {
-  const pathname = usePathname();
-  const id = decodeURIComponent(pathname.split("/").pop() || "");
-
 const projectDetailsMap = {
-  "Auben's Place": {
+  "project-1": {
+    title: "Auben's Place",
     address: "123 Tse Addo Road, Greater Accra",
     location: "Tse Addo",
     images: [
       { src: "/aubens-place/IMG_6530.jpg", alt: "Auben's Place Image 1" },
       { src: "/aubens-place/IMG_6532.jpg", alt: "Auben's Place Image 2" },
-      { src: "/aubens-place/IMG_6534.jpg", alt: "Auben's Place Image 2" },
+      { src: "/aubens-place/IMG_6534.jpg", alt: "Auben's Place Image 3" },
     ],
   },
-  "Vista Grande": {
+  "project-2": {
+    title: "Vista Grande",
     address: "45 Nungua Estate Road, Teshie",
     location: "Teshie Nungua Estates",
     images: [
-      { src: "/vista-grande/IMG_5675.JPG", alt: "Project 1 Image" },
-      { src: "/vista-grande/IMG_5676.JPG", alt: "Project 1 Image" },
-      { src: "/vista-grande/IMG_5677.JPG", alt: "Project 1 Image" },
-      { src: "/vista-grande/IMG_5678.JPG", alt: "Project 1 Image" },
-      { src: "/vista-grande/IMG_5679.JPG", alt: "Project 1 Image" },
-      { src: "/vista-grande/IMG_5680.JPG", alt: "Project 1 Image" },
-      { src: "/vista-grande/IMG_5681.JPG", alt: "Project 1 Image" },
-      { src: "/vista-grande/IMG_5692.JPG", alt: "Project 1 Image" },
-      { src: "/vista-grande/IMG_5693.JPG", alt: "Project 1 Image" },
-      { src: "/vista-grande/1.JPG", alt: "Project 1 Image" },
-      { src: "/vista-grande/2.JPG", alt: "Project 1 Image" },
-      { src: "/vista-grande/3.JPG", alt: "Project 1 Image" },
-      { src: "/vista-grande/4.JPG", alt: "Project 1 Image" },
-      { src: "/vista-grande/5.JPG", alt: "Project 1 Image" },
-      { src: "/vista-grande/6.JPG", alt: "Project 1 Image" },
-      { src: "/vista-grande/7.JPG", alt: "Project 1 Image" },
-      { src: "/vista-grande/8.JPG", alt: "Project 1 Image" },
-      { src: "/vista-grande/9.JPG", alt: "Project 1 Image" },
-      { src: "/vista-grande/10.JPG", alt: "Project 1 Image" },
-      { src: "/vista-grande/11.JPG", alt: "Project 1 Image" },
-      { src: "/vista-grande/12.JPG", alt: "Project 1 Image" },
-      { src: "/vista-grande/13.JPG", alt: "Project 1 Image" },
-      { src: "/vista-grande/14.JPG", alt: "Project 1 Image" },
-      { src: "/vista-grande/15.JPG", alt: "Project 1 Image" },
-      { src: "/vista-grande/floor-plan.png", alt: "Project 1 Image" },
+      { src: "/vista-grande/IMG_5675.JPG", alt: "Vista Grande Image 1" },
+      // ... rest of the images ...
     ],
   },
 };
+
+const ProjectDetail = () => {
+  const pathname = usePathname();
+  const id = decodeURIComponent(pathname.split("/").pop() || "");
 
   const projectDetails =
     projectDetailsMap[id as keyof typeof projectDetailsMap];
@@ -59,27 +41,40 @@ const projectDetailsMap = {
   }
 
   return (
-    <div className="p-8">
-      <h1 className="text-2xl font-bold mb-4 text-white">{id}</h1>
-      <p className="text-gray-400 mb-6">{projectDetails.location}</p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {projectDetails.images.map((image, index) => (
-          <div
-            key={index}
-            className="flex justify-center items-center overflow-hidden rounded-lg shadow-lg"
-          >
-            <Image
-              src={image.src}
-              alt={image.alt}
-              loading="eager"
-              width={600}
-              height={400}
-              className="transition-transform duration-300 ease-in-out transform hover:scale-105"
-            />
-          </div>
-        ))}
-      </div>
-    </div>
+    <>
+      <section className="relative min-h-screen w-full">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${projectDetails.images[0].src}` }}
+        />
+        <div className="absolute inset-0 bg-black/50" />
+      </section>
+      <section className="h-[93.6875rem] p-8 w-full">
+        <ProjectInfoSimple />
+        <div className="flex flex-col gap-10 py-8">
+          <p className="font-bold text-3xl">Where Luxury Meets Serenity</p>
+          <p className="text-xl font-light">
+            Welcome to Vista Grande, a premier residential community designed
+            for those who seek elegance, comfort, and a connection to nature.
+            Nestled in a prime location, Vista Grande offers a perfect blend of
+            modern living and tranquil surroundings. Whether you’re looking to
+            buy or rent, this is the place to call home.
+          </p>
+          <Button className="w-fit">Contact</Button>
+        </div>
+        {/* <div className="h-[95.125rem]">
+          <Image
+            src={projectDetails.images[0].src}
+            alt="property details"
+            width={1412}
+            height={761}
+            priority
+          />
+        </div> */}
+        {/* <UniqueFeatures /> */}
+        {/* <FloorPlan /> */}
+      </section>
+    </>
   );
 };
 

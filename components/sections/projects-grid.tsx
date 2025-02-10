@@ -71,14 +71,14 @@ const mockProjects: Project[] = [
 ];
 
 const ProjectsGrid = () => {
-  const [projects, /*setProjects*/] = useState<Project[]>(mockProjects);
+  const [projects /*setProjects*/] = useState<Project[]>(mockProjects);
   const allProjects = projects;
   const rentalProjects = projects.filter(
     (project) => project.type === "rental"
   );
 
-  const saleProjects = projects.filter((project) => project.type === "sale");
 
+  const saleProjects = projects.filter((project) => project.type === "sale");
 
   return (
     <div className="w-full mx-auto">
