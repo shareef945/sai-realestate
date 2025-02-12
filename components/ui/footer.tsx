@@ -39,7 +39,7 @@ const Footer = () => {
               href="#"
               className="no-underline hover:underline pb-2 text-sm md:text-base hover:opacity-80 cursor-pointer"
             >
-              Kasa360
+              Casa360
             </Link>
           </div>
           <div className="flex flex-col gap-4 md:gap-8 order-first md:order-last">
