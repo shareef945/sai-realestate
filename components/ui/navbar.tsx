@@ -15,10 +15,10 @@ const NAV_ITEMS = [
   { href: "/casa360", label: "Casa360" },
 ];
 
-const BOTTOM_NAV_ITEMS = [
-  { href: "/privacy", label: "Privacy Policy" },
-  { href: "/terms", label: "Terms of Service" },
-];
+// const BOTTOM_NAV_ITEMS = [
+//   { href: "/privacy", label: "Privacy Policy" },
+//   { href: "/terms", label: "Terms of Service" },
+// ];
 
 const COMMON_STYLES = {
   nav: (isScrolled: boolean) =>
