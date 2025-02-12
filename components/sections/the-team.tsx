@@ -12,7 +12,7 @@ const teamMembers = [
     id: 2,
     image: "/people/nilla.JPG",
     name: "Nilla Selormey",
-    description: "COO",
+    description: "Director",
   },
   {
     id: 3,

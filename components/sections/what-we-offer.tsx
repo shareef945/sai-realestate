@@ -20,7 +20,7 @@ const WhatWeOffer = () => {
             alt="Property features"
             fill
             className="object-cover rounded-md"
-            priority
+            priority={true}
           />
         </div>
         <div className="space-y-6">
