@@ -11,6 +11,7 @@ import { Button } from "./button";
 const NAV_ITEMS = [
   { href: "/about", label: "About" },
   { href: "/portfolio", label: "Portfolio" },
+  { href: "/casa360", label: "Casa360" },
 ];
 
 const COMMON_STYLES = {

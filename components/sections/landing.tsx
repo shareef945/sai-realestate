@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 const Landing = () => {
   return (
@@ -18,7 +19,9 @@ const Landing = () => {
           <p className="text-lg sm:text-xl md:text-2xl lg:text-[23px] w-full md:w-3/4 py-4 md:py-8">
             Your Trusted Partner in Finding Your Dream Property
           </p>
-          <Button className="text-sm sm:text-base">Contact</Button>
+          <Link href={"/contact"}>
+            <Button className="text-sm sm:text-base">Contact</Button>
+          </Link>
         </div>
       </div>
     </section>
