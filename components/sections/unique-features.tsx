@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "../ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 const UniqueFeatures = () => {
   return (
@@ -37,7 +38,9 @@ const UniqueFeatures = () => {
               finishes.
             </p>
           </div>
-          <Button className="w-full md:w-auto">Contact</Button>
+          <Link href={"/contacts"}>
+            <Button className="w-full md:w-auto">Contact</Button>
+          </Link>
         </div>
 
         <div className="relative w-full h-[300px] md:h-[400px] lg:h-[566px]">
@@ -46,7 +49,7 @@ const UniqueFeatures = () => {
             alt="Property features"
             fill
             className="object-cover rounded-md"
-            priority
+            priority={true}
           />
         </div>
       </div>

@@ -4,7 +4,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <section className="min-h-[20rem] md:h-[32.5625rem] bg-[#151515] w-full py-8 md:py-0">
+    <section className="min-h-[20rem] md:h-[25rem] bg-[#151515] w-full py-8 md:py-0">
       <div className="grid grid-cols-1 md:grid-cols-10 gap-4 md:gap-8 h-full md:my-20 px-4 md:px-0">
 
         {/* Logo section */}
@@ -14,8 +14,8 @@ const Footer = () => {
               src="/logos/footer-logo.png"
               alt="Footer logo"
               width={600}
-              height={1000}
-              className="w-auto h-[100px] md:h-[200px] object-contain"
+              height={800}
+              className="w-auto h-[100px] md:h-[100px] object-contain"
             />
           </div>
         </div>
@@ -42,7 +42,7 @@ const Footer = () => {
               Casa360
             </Link>
           </div>
-          <div className="flex flex-col gap-4 md:gap-8 order-first md:order-last">
+          <div className="flex flex-col gap-4 md:gap-4 order-first md:order-last">
             <a
               href="mailto:info@sairealestate.casa"
               className="no-underline hover:underline pb-2 text-sm md:text-base hover:opacity-80 cursor-pointer"

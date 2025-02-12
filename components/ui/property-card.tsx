@@ -24,7 +24,13 @@ const PropertyCard = ({
             {String(id).padStart(2, "0")}.
           </div>
           <div className="h-[38.125rem] relative">
-            <Image src={image} alt={title} fill className="object-cover" />
+            <Image
+              src={image}
+              alt={title}
+              fill
+              className="object-cover"
+              priority={true}
+            />
           </div>
         </div>
         <div className="w-1/4 border-[#ffffff0a] h-full bg-[#191919] border">

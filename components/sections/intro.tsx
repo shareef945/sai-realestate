@@ -23,7 +23,7 @@ const Intro = () => {
               alt="First property"
               fill
               className="object-contain rounded-lg"
-              priority
+              priority={true}
               sizes="(max-width: 640px) 100vw, 50vw"
             />
           </div>
@@ -33,7 +33,7 @@ const Intro = () => {
               alt="Second property"
               fill
               className="object-contain rounded-lg"
-              priority
+              priority={true}
               sizes="(max-width: 640px) 100vw, 50vw"
             />
           </div>

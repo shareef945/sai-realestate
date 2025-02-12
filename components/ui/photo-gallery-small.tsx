@@ -1,5 +1,13 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "./dialog";
+import { DialogDescription } from "@radix-ui/react-dialog";
 
 export default function PhotoGallerySmall() {
   return (
@@ -13,7 +21,7 @@ export default function PhotoGallerySmall() {
             className="object-cover rounded-lg md:rounded-r-none"
             fill
             sizes="(max-width: 768px) 100vw, 60vw"
-            priority
+            priority={true}
           />
         </div>
 
@@ -27,6 +35,7 @@ export default function PhotoGallerySmall() {
               className="object-cover"
               fill
               sizes="(max-width: 768px) 50vw, 20vw"
+              priority={true}
             />
           </div>
           <div className="relative aspect-square w-full">
@@ -36,6 +45,7 @@ export default function PhotoGallerySmall() {
               className="object-cover md:rounded-tr-lg"
               fill
               sizes="(max-width: 768px) 50vw, 20vw"
+              priority={true}
             />
           </div>
 
@@ -47,6 +57,7 @@ export default function PhotoGallerySmall() {
               className="object-cover"
               fill
               sizes="(max-width: 768px) 50vw, 20vw"
+              priority={true}
             />
           </div>
           <div className="relative aspect-square w-full group">
@@ -56,11 +67,35 @@ export default function PhotoGallerySmall() {
               className="object-cover md:rounded-br-lg"
               fill
               sizes="(max-width: 768px) 50vw, 20vw"
+              priority={true}
             />
             <div className="absolute inset-0 bg-black/40 flex items-center justify-center md:rounded-br-lg transition-opacity hover:bg-black/50">
-              <Button variant="secondary" className="font-medium">
+              {/* <Button variant="secondary" className="font-medium">
                 Show all photos
-              </Button>
+              </Button> */}
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button variant="secondary" className="font-medium">
+                    Show all photos
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[425px]">
+                  <DialogHeader>
+                    <DialogTitle>Edit profile</DialogTitle>
+                    <DialogDescription>
+                      Make changes to your profile here. Click save when youre
+                      done.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className="grid gap-4 py-4">
+                    <div className="grid grid-cols-4 items-center gap-4"></div>
+                    <div className="grid grid-cols-4 items-center gap-4"></div>
+                  </div>
+                  {/* <DialogFooter>
+                    <Button type="submit">Save changes</Button>
+                  </DialogFooter> */}
+                </DialogContent>
+              </Dialog>
             </div>
           </div>
         </div>

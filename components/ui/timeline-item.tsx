@@ -58,6 +58,7 @@ const TimelineItem = ({
           fill
           className="object-cover rounded-lg"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 50vw"
+          priority={true}
         />
       </div>
     </div>

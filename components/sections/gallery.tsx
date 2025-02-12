@@ -1,8 +1,29 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "../ui/dialog";
+import { DialogDescription } from "@radix-ui/react-dialog";
 
 const Gallery = () => {
+  const [images, setImages] = useState<string[]>([]);
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      const response = await fetch("/api/images");
+      const data = await response.json();
+      setImages(data.images);
+    };
+
+    fetchImages();
+  }, []);
+
   return (
     <div className="flex flex-col py-12 space-y-8 md:space-y-12">
       {/* Header section */}
@@ -76,9 +97,36 @@ const Gallery = () => {
 
           {/* Button overlay */}
           <div className="absolute bottom-4 right-4">
-            <Button  className="font-medium">
-              Show all photos
-            </Button>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button className="font-medium">Show all photos</Button>
+              </DialogTrigger>
+              <DialogContent className="w-full h-full bg-[#151515] max-w-[90vw] max-h-[90vh] border-none">
+                <DialogHeader>
+                  <DialogTitle className="text-4xl font-bold text-center mb-2">
+                    Vista Grande Gallery
+                  </DialogTitle>
+                  <DialogDescription className="text-center text-gray-400">
+                    Browse through all photos of our beautiful property
+                  </DialogDescription>
+                </DialogHeader>
+                <div className="overflow-y-auto h-[calc(90vh-120px)]">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4">
+                    {images.map((src, index) => (
+                      <div key={index} className="relative aspect-[4/3] w-full">
+                        <Image
+                          src={src}
+                          alt={`Vista Grande photo ${index + 1}`}
+                          fill
+                          className="object-cover rounded-lg hover:opacity-90 transition-opacity"
+                          sizes="(max-width: 640px) 90vw, (max-width: 768px) 45vw, (max-width: 1024px) 30vw, 22vw"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
       </div>

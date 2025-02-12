@@ -5,6 +5,7 @@ import UniqueFeatures from "@/components/sections/unique-features";
 import { Button } from "@/components/ui/button";
 import ProjectInfoSimple from "@/components/ui/project-info-simple";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const projectDetailsMap = {
@@ -64,10 +65,12 @@ const ProjectDetail = () => {
             Welcome to Vista Grande, a premier residential community designed
             for those who seek elegance, comfort, and a connection to nature.
             Nestled in a prime location, Vista Grande offers a perfect blend of
-            modern living and tranquil surroundings. Whether you&apos;re looking to
-            buy or rent, this is the place to call home.
+            modern living and tranquil surroundings. Whether you&apos;re looking
+            to buy or rent, this is the place to call home.
           </p>
-          <Button className="w-fit">Contact</Button>
+          <Link href="/contact">
+            <Button className="w-fit">Contact</Button>
+          </Link>
         </div>
         <div className="relative w-full aspect-[1.85/1] max-h-[761px]">
           <Image
@@ -75,7 +78,7 @@ const ProjectDetail = () => {
             alt="property details"
             fill
             className="object-cover"
-            priority
+            priority={true}
           />
         </div>
         <UniqueFeatures />

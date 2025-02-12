@@ -29,6 +29,7 @@ const FloorPlan = () => {
                 alt="3 bedroom floor plan"
                 fill
                 className="object-contain"
+                priority={true}
               />
             </div>
           </TabsContent>

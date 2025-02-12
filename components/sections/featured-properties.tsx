@@ -46,7 +46,7 @@ const FeaturedProperties = () => {
                       alt={property.title}
                       fill
                       className="object-cover"
-                      priority
+                      priority={true}
                     />
                   </div>
                 </div>
@@ -82,7 +82,7 @@ const FeaturedProperties = () => {
                           alt={property.title}
                           fill
                           className="object-cover"
-                          priority
+                          priority={true}
                         />
                       </div>
                     </div>
@@ -127,7 +127,7 @@ const FeaturedProperties = () => {
                           alt={property.title}
                           fill
                           className="object-cover"
-                          priority
+                          priority={true}
                         />
                       </div>
                     </div>
