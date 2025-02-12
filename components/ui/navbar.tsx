@@ -9,9 +9,15 @@ import { usePathname } from "next/navigation";
 import { Button } from "./button";
 
 const NAV_ITEMS = [
+  // { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/casa360", label: "Casa360" },
+];
+
+const BOTTOM_NAV_ITEMS = [
+  { href: "/privacy", label: "Privacy Policy" },
+  { href: "/terms", label: "Terms of Service" },
 ];
 
 const COMMON_STYLES = {
@@ -24,7 +30,7 @@ const COMMON_STYLES = {
   logoText: "text-white font-semibold",
   mobileButton: "lg:hidden text-white", // Changed from text-black to text-white
   desktopNav: "hidden lg:flex lg:items-center lg:gap-8",
-  link: "flex w-full items-center text-white text-sm font-semibold hover:text-gray-300 transition-colors", // Added hover effect
+  link: "flex w-full items-center text-secondary md:text-white text-xl md:text-sm font-semibold hover:text-gray-300 transition-colors", // Added hover effect
 };
 
 const Logo = () => (
@@ -52,7 +58,7 @@ const NavigationLinks = ({
       <Link
         key={href}
         href={href}
-        className={`${COMMON_STYLES.link} ${isMobile ? "text-lg" : ""}`}
+        className={`${COMMON_STYLES.link} ${isMobile ? "text-4xl" : ""}`}
         prefetch={false}
       >
         {label}
@@ -98,12 +104,15 @@ export default function Navbar() {
               <Menu className="h-6 w-6" />
             </button>
           </SheetTrigger>
-          <SheetContent side="left" className="bg-[#151515] p-6">
+          <SheetContent side="left" className="bg-[#151515] p-6 w-full h-full">
             <div className="mb-8">
               <Logo />
             </div>
-            <div className="grid gap-2">
+            <div className="grid gap-2 pt-20">
               <NavigationLinks isMobile />
+            </div>
+            <div className="absolute bottom-8 left-6">
+              <p className="text-secondary text-sm">info@sairealestate.casa</p>
             </div>
           </SheetContent>
         </Sheet>
