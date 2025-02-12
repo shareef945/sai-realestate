@@ -15,8 +15,8 @@ const PropertyCard = () => {
     },
     {
       number: 3,
-      title: "Property Management",
-      description: "Let us handle the details while you enjoy peace of mind.",
+      title: "Property Management Solutions (Casa360)",
+      description: "Tried and tested property management solutions to streamline your operations",
     },
   ];
 

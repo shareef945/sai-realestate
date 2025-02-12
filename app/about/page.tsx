@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 const About = () => {
@@ -6,27 +7,51 @@ const About = () => {
       <section className="relative h-[50vh] md:min-h-screen w-full">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url(/vista-grande/10.JPG)" }}
+          style={{ backgroundImage: "url(/vista-grande/IMG_5676.JPG)" }}
         />
         <div className="absolute inset-0 bg-black/50" />
         {/* Text container */}
         <div className="absolute inset-0 flex items-center md:items-end">
           <div className="text-white p-6 md:p-12 lg:p-24 lg:pb-40">
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold ">
-             About us
+              About us
             </h1>
           </div>
         </div>
       </section>
-      <section className="w-full px-4 md:px-8 py-12 bg-[#151515]">
-        <div className="">
-          <div className="mb-12 max-w-3xl">
-            <p className="text-2xl leading-relaxed">
-              At SAI Real Estates, we&apos;re here to help you find the perfect
-              property, whether you&apos;re buying, selling, or renting. Reach
-              out to us today, and let&apos;s make your real estate dreams a
-              reality.
+      <section className="w-full px-4 md:px-8 py-12">
+        <div className="w-full">
+          <div className="mb-12 ">
+            <p className="font-bold text-2xl pb-6">
+              Your Trusted Partner in Real Estate
             </p>
+            <p className="text-2xl leading-relaxed">
+              At SAI Real Estates, we believe that finding the perfect home or
+              investment property should be a seamless and rewarding experience.
+              Whether you’re buying, selling, or renting, our mission is to
+              connect you with the best properties that match your needs and
+              aspirations.
+            </p>
+            <div className="flex flex-col md:flex-row gap-4 mb-12 pt-20">
+              <div style={{ width: "33.333%" }} className="relative h-[647px]">
+                <Image
+                  src="/vista-grande/4.JPG"
+                  alt="Real Estate Image 1"
+                  className="object-cover"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <div style={{ width: "66.666%" }} className="relative h-[647px]">
+                <Image
+                  src="/vista-grande/IMG_5680.JPG"
+                  alt="Real Estate Image 2"
+                  className="object-cover"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 66vw"
+                />
+              </div>
+            </div>
           </div>
         </div>
         {/* <ContactForm /> */}
