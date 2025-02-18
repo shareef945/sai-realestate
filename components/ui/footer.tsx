@@ -36,7 +36,7 @@ const Footer = () => {
               Portfolio
             </Link>
             <Link
-              href="#"
+              href="/casa360"
               className="no-underline hover:underline pb-2 text-sm md:text-base hover:opacity-80 cursor-pointer"
             >
               Casa360
