@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "SAI Real Estate",
-    description: "Luxury Real Estate Development in Ghana",
+    description: "Affordable Luxury Real Estate Development in Ghana",
     images: [
       {
         url: "/site-preview.png",
