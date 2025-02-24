@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 const PricingPlansCard = () => {
   const pricingPlans = [
@@ -96,9 +97,11 @@ const PricingPlansCard = () => {
                 </ul>
               </div>
             </div>
-            <Button className="mt-6 w-full  hover:bg-[#404040] py-2 px-4 rounded transition duration-300">
-              Subscribe
-            </Button>
+            <Link href={"https://casa360.sairealestate.casa"}>
+              <Button className="mt-6 w-full  hover:bg-[#404040] py-2 px-4 rounded transition duration-300">
+                Get Started
+              </Button>
+            </Link>
           </div>
         ))}
       </div>
