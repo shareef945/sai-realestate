@@ -17,7 +17,7 @@ export interface Project {
 
 const mockProjects: Project[] = [
   {
-    id: "project-1",
+    id: "vista-grande",
     title: "Vista Grande",
     description: "Modern 3-bedroom apartment in an upcoming neighbourhood",
     type: "sale" as const,
@@ -27,7 +27,7 @@ const mockProjects: Project[] = [
     imageAspectRatio: "square",
   },
   {
-    id: "project-2",
+    id: "aubens-place",
     title: "Auben's Place",
     description: "Elegant Living Spaces",
     type: "rental" as const,
