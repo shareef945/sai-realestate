@@ -9,7 +9,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const projectDetailsMap = {
-  "project-1": {
+  "aubens-place": {
     title: "Auben's Place",
     address: "123 Tse Addo Road, Greater Accra",
     location: "Tse Addo",
@@ -19,7 +19,7 @@ const projectDetailsMap = {
       { src: "/aubens-place/IMG_6534.jpg", alt: "Auben's Place Image 3" },
     ],
   },
-  "project-2": {
+  "vista-grande": {
     title: "Vista Grande",
     address: "45 Nungua Estate Road, Teshie",
     location: "Teshie Nungua Estates",

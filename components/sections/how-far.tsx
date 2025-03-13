@@ -1,11 +1,12 @@
 import React from "react";
 import TracingBeam from "../ui/tracing-beam";
-
 import TimelineItem from "../ui/timeline-item";
+import { useRouter } from "next/navigation";
 
 const timelineData = [
   {
     title: "Vista Grande",
+    slug: "vista-grande",
     description:
       "Bringing luxury to an emerging neighborhood, setting new standards for modern living at competitive prices.",
     year: "2025",
@@ -13,6 +14,7 @@ const timelineData = [
   },
   {
     title: "Auben's Place",
+    slug: "aubens-place",
     description:
       "Premium living made accessible in a prime location, combining sophisticated design with exceptional value.",
     year: "2023",
@@ -20,6 +22,11 @@ const timelineData = [
   },
 ];
 const HowFar = () => {
+  const router = useRouter();
+
+  const handleItemClick = (slug: string) => {
+    router.push(`/portfolio/${slug}`);
+  };
   return (
     <section className="min-h-screen bg-[#151515] px-4 sm:px-6 md:px-8 pb-4 sm:pb-6 md:pb-8">
       <p className="text-3xl md:text-4xl lg:text-[60px] font-semibold pb-12 md:pb-16 lg:pb-24">
@@ -33,6 +40,7 @@ const HowFar = () => {
             description={item.description}
             year={item.year}
             imagePath={item.imagePath}
+            onButtonClick={() => handleItemClick(item.slug)}
           />
         ))}
       </TracingBeam>
