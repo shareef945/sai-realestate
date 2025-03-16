@@ -11,7 +11,16 @@ import {
 } from "../ui/dialog";
 import { DialogDescription } from "@radix-ui/react-dialog";
 
-const Gallery = () => {
+interface GalleryProps {
+  gallery: {
+    title: string;
+    description: string;
+    mainImage: string;
+    gridImages: string[];
+  };
+}
+
+const Gallery = ({ gallery }: GalleryProps) => {
   const [images, setImages] = useState<string[]>([]);
 
   useEffect(() => {
@@ -19,6 +28,7 @@ const Gallery = () => {
       const response = await fetch("/api/images");
       const data = await response.json();
       setImages(data.images);
+      console.log(gallery)
     };
 
     fetchImages();

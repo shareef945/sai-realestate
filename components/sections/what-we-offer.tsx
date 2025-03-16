@@ -27,15 +27,15 @@ const WhatWeOffer = () => {
           <div className="space-y-2">
             <p className="text-xl md:text-2xl font-bold">Property Sales</p>
             <p className="text-secondary">
-              3-4 bedroom layouts with open-concept designs and premium
-              finishes.
+            Expert guidance through every step of your property purchase journey, from market analysis to closing. We help you find the perfect property that matches your requirements and budget.
+
             </p>
           </div>
           <div className="space-y-2">
             <p className="text-xl md:text-2xl font-bold">Rentals & Leasing</p>
             <p className="text-secondary">
-              3-4 bedroom layouts with open-concept designs and premium
-              finishes.
+            Comprehensive rental and leasing services for both landlords and tenants. We handle property listings, tenant screening, lease agreements, and ensure smooth transitions throughout the rental process.
+
             </p>
           </div>
           <div className="space-y-2">
@@ -43,8 +43,8 @@ const WhatWeOffer = () => {
               Digital Tools for Property Management
             </p>
             <p className="text-secondary">
-              3-4 bedroom layouts with open-concept designs and premium
-              finishes.
+            Modern property management solutions including online rent collection, maintenance request tracking, and digital documentation to streamline your property management experience.
+
             </p>
           </div>
         </div>

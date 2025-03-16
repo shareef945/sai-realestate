@@ -11,23 +11,128 @@ import { usePathname } from "next/navigation";
 const projectDetailsMap = {
   "aubens-place": {
     title: "Auben's Place",
-    address: "123 Tse Addo Road, Greater Accra",
+    address: "Flat 3 Cotton Loop Road, Tse Addo, Accra",
     location: "Tse Addo",
+    description: "Welcome to Auben's Place, where modern comfort meets elegant design. Nestled in the heart of Tse Addo, this exclusive development offers a perfect blend of luxury and functionality. Each residence is thoughtfully designed to provide an unparalleled living experience with premium finishes and contemporary amenities.",
     images: [
       { src: "/aubens-place/IMG_6530.jpg", alt: "Auben's Place Image 1" },
       { src: "/aubens-place/IMG_6532.jpg", alt: "Auben's Place Image 2" },
       { src: "/aubens-place/IMG_6534.jpg", alt: "Auben's Place Image 3" },
     ],
+    features: {
+      title: "Unique Features",
+      description: "Explore our exclusive listings and discover the perfect place to call home.",
+      items: [
+        {
+          title: "Spacious Homes",
+          description: "Experience luxurious living with generously sized rooms, high ceilings, and thoughtfully designed floor plans that maximize both comfort and functionality."
+        },
+        {
+          title: "Breathtaking Views",
+          description: "Enjoy stunning panoramic views from your windows, offering a perfect blend of natural scenery and urban landscapes that create an inspiring living environment."
+        },
+        {
+          title: "Modern Amenities",
+          description: "Access state-of-the-art facilities including smart home features, energy-efficient appliances, and contemporary fixtures designed for modern living."
+        }
+      ],
+      featureImage: "/aubens-place/IMG_6532.jpg"
+    },
+    floorPlans: {
+      title: "Floor Plans",
+      description: "Explore our exclusive listings and discover the perfect place to call home.",
+      plans: [
+        {
+          type: "3 bedroom",
+          image: "/aubens-place/IMG_6530.jpg"
+        },
+        {
+          type: "2 bedroom",
+          image: "/aubens-place/IMG_6532.jpg"
+        }
+      ]
+    },
+    projectInfo: {
+      price: "$150,000",
+      bedrooms: "2",
+      bathrooms: "2.5",
+      parking: "2"
+    },
+    gallery: {
+      title: "Gallery",
+      description: "Take a virtual tour and see why it's the perfect place to call home.",
+      mainImage: "/aubens-place/IMG_6530.jpg",
+      gridImages: [
+        "/aubens-place/IMG_6532.jpg",
+        "/aubens-place/IMG_6534.jpg",
+        "/aubens-place/IMG_6530.jpg",
+        "/aubens-place/IMG_6532.jpg"
+      ]
+    }
   },
   "vista-grande": {
     title: "Vista Grande",
-    address: "45 Nungua Estate Road, Teshie",
+    address: "#8 Jasmine Lane, Teshie Nungua Estate, Accra, Ghana",
     location: "Teshie Nungua Estates",
+    description: "Welcome to Vista Grande, a premier residential community designed for those who seek elegance, comfort, and a connection to nature. Nestled in the prestigious Teshie Nungua Estate, Vista Grande offers a perfect blend of modern living and tranquil surroundings. Whether you're looking to buy or rent, this is the place to call home.",
     images: [
       { src: "/vista-grande/IMG_5675.JPG", alt: "Vista Grande Image 1" },
-      // ... rest of the images ...
+      { src: "/vista-grande/IMG_5676.JPG", alt: "Vista Grande Image 2" },
+      { src: "/vista-grande/IMG_5677.JPG", alt: "Vista Grande Image 3" },
+      { src: "/vista-grande/IMG_5678.JPG", alt: "Vista Grande Image 4" },
+      { src: "/vista-grande/IMG_5679.JPG", alt: "Vista Grande Image 5" }
     ],
-  },
+    features: {
+      title: "Unique Features",
+      description: "Discover what makes Vista Grande an exceptional living experience.",
+      items: [
+        {
+          title: "Premium Location",
+          description: "Situated in the prestigious Teshie Nungua Estate, offering easy access to major amenities while maintaining a serene environment."
+        },
+        {
+          title: "Luxury Finishes",
+          description: "Premium materials and expert craftsmanship throughout, from marble countertops to hardwood flooring."
+        },
+        {
+          title: "Smart Home Integration",
+          description: "State-of-the-art home automation systems, including security, climate control, and entertainment solutions."
+        }
+      ],
+      featureImage: "/vista-grande/IMG_5675.JPG"
+    },
+    floorPlans: {
+      title: "Floor Plans",
+      description: "Thoughtfully designed layouts that maximize space and comfort.",
+      plans: [
+        {
+          type: "3 bedroom",
+          image: "/vista-grande/floor-plan.png"
+        },
+        {
+          type: "2 bedroom",
+          image: "/vista-grande/floor-plan.png"
+        }
+      ]
+    },
+    projectInfo: {
+      price: "$150,000",
+      bedrooms: "3",
+      bathrooms: "3.5",
+      parking: "2"
+    },
+    gallery: {
+      title: "Gallery",
+      description: "Experience the beauty and elegance of Vista Grande through our photo gallery.",
+      mainImage: "/vista-grande/IMG_5675.JPG",
+      gridImages: [
+        "/vista-grande/IMG_5676.JPG",
+        "/vista-grande/IMG_5677.JPG",
+        "/vista-grande/IMG_5678.JPG",
+        "/vista-grande/IMG_5679.JPG"
+      ]
+    }
+  }
 };
 
 const ProjectDetail = () => {
@@ -58,16 +163,10 @@ const ProjectDetail = () => {
         </div>
       </section>
       <section className="w-full px-4 md:px-8 py-12 space-y-16">
-        <ProjectInfoSimple />
+        <ProjectInfoSimple info={projectDetails.projectInfo} />
         <div className="flex flex-col gap-10 py-8">
           <p className="font-bold text-3xl">Where Luxury Meets Serenity</p>
-          <p className="text-xl font-light">
-            Welcome to Vista Grande, a premier residential community designed
-            for those who seek elegance, comfort, and a connection to nature.
-            Nestled in a prime location, Vista Grande offers a perfect blend of
-            modern living and tranquil surroundings. Whether you&apos;re looking
-            to buy or rent, this is the place to call home.
-          </p>
+          <p className="text-xl font-light">{projectDetails.description}</p>
           <Link href="/contact">
             <Button className="w-fit">Contact</Button>
           </Link>
@@ -81,9 +180,9 @@ const ProjectDetail = () => {
             priority={true}
           />
         </div>
-        <UniqueFeatures />
-        <FloorPlan />
-        <Gallery />
+        <UniqueFeatures features={projectDetails.features} />
+        <FloorPlan floorPlans={projectDetails.floorPlans} />
+        <Gallery gallery={projectDetails.gallery} />
       </section>
     </>
   );

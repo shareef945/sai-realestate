@@ -1,31 +1,35 @@
 import React from "react";
 
 const WhyChooseCasa360Card = () => {
+
   const services = [
     {
       number: 1,
-      title: "Expert Market Knowledge",
-      description:
-        "Our team stays ahead of market trends to provide the best deals.",
+      title: "Seamless Property Listings & Management",
+      description: "Track and update properties with ease.",
     },
     {
       number: 2,
-      title: "Client-Focused Approach",
-      description:
-        "We prioritize your needs and preferences, making the process smooth and hassle-free.",
+      title: "Maintenance & Work Orders",
+      description: "Assign vendors, track expenses, and generate invoices.",
     },
     {
       number: 3,
-      title: "Trust & Transparency",
+      title: "Tenant & Lease Management",
+      description: "Organize leases, manage tenants, and automate renewals.",
+    },
+    {
+      number: 3,
+      title: "Digital Rent Collection & Payments",
       description:
-        "We believe in honesty, integrity, and clear communication with every transaction.",
+        "Secure and automated payments via mobile money, bank transfer, or card.",
     },
   ];
 
   return (
     <div className="">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {services.map((service) => (
             <div
               key={service.number}

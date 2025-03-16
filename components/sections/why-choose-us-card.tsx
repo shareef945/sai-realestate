@@ -1,34 +1,32 @@
 import React from "react";
 
 const WhyChooseUsCard = () => {
+
   const services = [
     {
       number: 1,
-      title: "Seamless Property Listings & Management",
-      description: "Track and update properties with ease.",
+      title: "Expert Market Knowledge",
+      description:
+        "Our team stays ahead of market trends to provide the best deals.",
     },
     {
       number: 2,
-      title: "Maintenance & Work Orders",
-      description: "Assign vendors, track expenses, and generate invoices.",
-    },
-    {
-      number: 3,
-      title: "Tenant & Lease Management",
-      description: "Organize leases, manage tenants, and automate renewals.",
-    },
-    {
-      number: 3,
-      title: "Digital Rent Collection & Payments",
+      title: "Client-Focused Approach",
       description:
-        "Secure and automated payments via mobile money, bank transfer, or card.",
+        "We prioritize your needs and preferences, making the process smooth and hassle-free.",
+    },
+    {
+      number: 3,
+      title: "Trust & Transparency",
+      description:
+        "We believe in honesty, integrity, and clear communication with every transaction.",
     },
   ];
 
   return (
     <div className="">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {services.map((service) => (
             <div
               key={service.number}

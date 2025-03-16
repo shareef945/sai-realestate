@@ -1,5 +1,5 @@
 import React from "react";
-import WhyChooseUsCard from "./why-choose-us-card";
+import WhyChooseCasa360Card from "./why-choose-casa360-card";
 
 const WhyChooseCasa360: React.FC = () => {
   return (
@@ -10,7 +10,7 @@ const WhyChooseCasa360: React.FC = () => {
         </p>
       </div>
       <div className="mt-8 md:mt-12">
-        <WhyChooseUsCard />
+        <WhyChooseCasa360Card />
       </div>
     </section>
   );
