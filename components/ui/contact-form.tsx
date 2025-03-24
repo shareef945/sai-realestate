@@ -11,8 +11,13 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
 
 export default function ContactForm() {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -22,10 +27,116 @@ export default function ContactForm() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Validate form fields
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+
+    // Required field validation
+    if (!formData.firstName.trim())
+      newErrors.firstName = "First name is required";
+    if (!formData.lastName.trim()) newErrors.lastName = "Last name is required";
+    if (!formData.property) newErrors.property = "Please select a property";
+    if (!formData.message.trim()) newErrors.message = "Message is required";
+
+    // Email validation
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+
+    // Phone validation
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Phone number is required";
+    } else if (!/^[+]?[\d\s()-]{7,}$/.test(formData.phone)) {
+      newErrors.phone = "Please enter a valid phone number";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  // Reset error when field is updated
+  const handleInputChange = (field: string, value: string) => {
+    setFormData({ ...formData, [field]: value });
+    if (errors[field]) {
+      setErrors({ ...errors, [field]: "" });
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log(formData);
+
+    // Validate form before submitting
+    if (!validateForm()) {
+      toast({
+        title: "Please check your inputs",
+        description: "Some fields need your attention",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    // Format data according to API requirements
+    const apiPayload = {
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      emailAddress: formData.email,
+      phoneNumber: formData.phone,
+      propertyTitle: formData.property,
+      message: formData.message,
+    };
+
+    try {
+      const response = await fetch(
+        "https://n8n.saitechnology.co/webhook/real-estate/lead",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(apiPayload),
+        }
+      );
+
+      if (response.ok) {
+        // Show success toast
+        toast({
+          title: "Message sent successfully!",
+          description: "We'll get back to you as soon as possible.",
+          variant: "default",
+        });
+
+        // Reset form
+        setFormData({
+          firstName: "",
+          lastName: "",
+          property: "",
+          email: "",
+          phone: "",
+          message: "",
+        });
+      } else {
+        // Show error toast with appropriate message
+        toast({
+          title: "Failed to send message",
+          description: "Please try again later or contact us directly.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      // Show error toast for network issues
+      toast({
+        title: "Connection error",
+        description: "Please check your internet connection and try again.",
+        variant: "destructive",
+      });
+      console.error("Error submitting form:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -39,11 +150,15 @@ export default function ContactForm() {
             <Input
               id="firstName"
               placeholder="Full Name"
-              className="bg-[#191919] border border-[#ffffff0a] "
-              onChange={(e) =>
-                setFormData({ ...formData, firstName: e.target.value })
-              }
+              className={`bg-[#191919] border ${
+                errors.firstName ? "border-red-500" : "border-[#ffffff0a]"
+              }`}
+              value={formData.firstName}
+              onChange={(e) => handleInputChange("firstName", e.target.value)}
             />
+            {errors.firstName && (
+              <p className="text-red-500 text-xs mt-1">{errors.firstName}</p>
+            )}
           </div>
           <div className="space-y-2">
             <label htmlFor="lastName" className="text-sm">
@@ -52,11 +167,15 @@ export default function ContactForm() {
             <Input
               id="lastName"
               placeholder="Last Name"
-              className="bg-[#191919] border border-[#ffffff0a] "
-              onChange={(e) =>
-                setFormData({ ...formData, lastName: e.target.value })
-              }
+              className={`bg-[#191919] border ${
+                errors.lastName ? "border-red-500" : "border-[#ffffff0a]"
+              }`}
+              value={formData.lastName}
+              onChange={(e) => handleInputChange("lastName", e.target.value)}
             />
+            {errors.lastName && (
+              <p className="text-red-500 text-xs mt-1">{errors.lastName}</p>
+            )}
           </div>
         </div>
 
@@ -65,22 +184,28 @@ export default function ContactForm() {
             Property title/info
           </label>
           <Select
-            onValueChange={(value) =>
-              setFormData({ ...formData, property: value })
-            }
+            value={formData.property}
+            onValueChange={(value) => handleInputChange("property", value)}
           >
-            <SelectTrigger className="bg-[#191919] border border-[#ffffff0a] ">
+            <SelectTrigger
+              className={`bg-[#191919] border ${
+                errors.property ? "border-red-500" : "border-[#ffffff0a]"
+              }`}
+            >
               <SelectValue placeholder="Select property" />
             </SelectTrigger>
-            <SelectContent className="bg-[#191919] border border-[#ffffff0a] ">
-              <SelectItem value="property1" className="text-white">
+            <SelectContent className="bg-[#191919] border border-[#ffffff0a]">
+              <SelectItem value="Vista Grande" className="text-white">
                 Vista Grande
               </SelectItem>
-              <SelectItem value="property2" className="text-white">
+              <SelectItem value="Auben's Place" className="text-white">
                 Auben&apos;s Place
               </SelectItem>
             </SelectContent>
           </Select>
+          {errors.property && (
+            <p className="text-red-500 text-xs mt-1">{errors.property}</p>
+          )}
         </div>
 
         <div className="space-y-2">
@@ -91,11 +216,15 @@ export default function ContactForm() {
             id="email"
             type="email"
             placeholder="Email Address"
-            className="bg-[#191919] border border-[#ffffff0a] "
-            onChange={(e) =>
-              setFormData({ ...formData, email: e.target.value })
-            }
+            value={formData.email}
+            className={`bg-[#191919] border ${
+              errors.email ? "border-red-500" : "border-[#ffffff0a]"
+            }`}
+            onChange={(e) => handleInputChange("email", e.target.value)}
           />
+          {errors.email && (
+            <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+          )}
         </div>
 
         <div className="space-y-2">
@@ -106,11 +235,15 @@ export default function ContactForm() {
             id="phone"
             type="tel"
             placeholder="Phone Number"
-            className="bg-[#191919] border border-[#ffffff0a] "
-            onChange={(e) =>
-              setFormData({ ...formData, phone: e.target.value })
-            }
+            value={formData.phone}
+            className={`bg-[#191919] border ${
+              errors.phone ? "border-red-500" : "border-[#ffffff0a]"
+            }`}
+            onChange={(e) => handleInputChange("phone", e.target.value)}
           />
+          {errors.phone && (
+            <p className="text-red-500 text-xs mt-1">{errors.phone}</p>
+          )}
         </div>
 
         <div className="space-y-2">
@@ -120,18 +253,23 @@ export default function ContactForm() {
           <Textarea
             id="message"
             placeholder="What are you looking for"
-            className="bg-[#191919] border border-[#ffffff0a] "
-            onChange={(e) =>
-              setFormData({ ...formData, message: e.target.value })
-            }
+            className={`bg-[#191919] border ${
+              errors.message ? "border-red-500" : "border-[#ffffff0a]"
+            }`}
+            value={formData.message}
+            onChange={(e) => handleInputChange("message", e.target.value)}
           />
+          {errors.message && (
+            <p className="text-red-500 text-xs mt-1">{errors.message}</p>
+          )}
         </div>
 
         <Button
           type="submit"
           className="w-full md:w-auto md:float-right bg-white text-black hover:bg-gray-200"
+          disabled={isSubmitting}
         >
-          Submit
+          {isSubmitting ? "Submitting..." : "Submit"}
         </Button>
       </form>
 
