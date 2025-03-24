@@ -23,7 +23,7 @@ const Contact = () => {
         <div className="">
           <div className="mb-12 max-w-3xl">
             <p className="text-2xl leading-relaxed">
-              At SAI Real Estates, we&apos;re here to help you find the perfect
+              At SAI Real Estate, we&apos;re here to help you find the perfect
               property, whether you&apos;re buying, selling, or renting. Reach
               out to us today, and let&apos;s make your real estate dreams a
               reality.
