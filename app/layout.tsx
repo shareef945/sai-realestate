@@ -7,28 +7,54 @@ import Footer from "@/components/ui/footer";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "SAI Real Estate",
-  description: "Real Estate Development",
+  title: "SAI Real Estate | Luxury Properties in Ghana",
+  description:
+    "Premium real estate development offering luxury properties, rentals, and innovative property management solutions in Ghana.",
+  keywords: [
+    "SAI Real Estate",
+    "Luxury Properties",
+    "Real Estate Ghana",
+    "Property Sales",
+    "Property Rentals",
+    "Casa360",
+    "Property Management",
+    "Vista Grande",
+    "Auben's Place",
+    "Teshie Nungua Estates",
+    "Tse-Addo",
+    "Ghana Real Estate",
+  ],
+  authors: [{ name: "SAI Real Estate" }],
+  creator: "SAI Real Estate",
+  publisher: "SAI Real Estate",
   icons: {
     icon: [
       {
-        url: "/sai-main.png",
+        url: "/sai-black.png",
         sizes: "32x32",
         type: "image/png",
       },
       {
-        url: "/sai-main.png",
+        url: "/sai-black.png",
         sizes: "16x16",
         type: "image/png",
       },
     ],
+    apple: [{ url: "/sai-main.png", sizes: "180x180", type: "image/png" }],
+    other: [{ url: "/sai-main.png", rel: "apple-touch-icon" }],
+  },
+  manifest: "/site.webmanifest",
+  robots: {
+    index: true,
+    follow: true,
   },
   openGraph: {
-    title: "SAI Real Estate",
+    title: "SAI Real Estate | Luxury Properties in Ghana",
     description: "Affordable Luxury Real Estate Development in Ghana",
+    url: "https://sairealestate.casa",
     images: [
       {
-        url: "/site-preview.png",
+        url: "/general-media/landing.JPG",
         width: 1200,
         height: 630,
         alt: "SAI Real Estate Preview",
@@ -38,6 +64,23 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "SAI Real Estate",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "SAI Real Estate | Luxury Properties in Ghana",
+    description:
+      "Premium real estate development offering luxury properties, rentals, and innovative property management solutions in Ghana.",
+    images: ["/general-media/landing.JPG"],
+    creator: "@sairealestate_",
+    site: "@sairealestate_",
+  },
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+  },
+  // verification: {
+  //   google: "your-google-verification-code", // Replace with your verification code
+  // },
+  category: "real estate",
 };
 
 export default function RootLayout({
